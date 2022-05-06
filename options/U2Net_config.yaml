@@ -1,0 +1,30 @@
+loader_mode: FBDM
+gpu: '1'
+data_set: PPM
+save_file: 19
+img_size: 512
+batch_size: 6
+num_worker: 8
+pretrain_path: ''
+lr: 0.0001
+weight: 0.0005
+port: 23548
+epoch: 1000
+aug_mixup: false
+aug_shadow: true
+aug_crop: false
+val_per_epoch: 1
+show_per_epoch: 10
+save_per_epoch: 5
+in_ch: 3
+out_ch: 1
+
+#PPM
+fg_path: /data/wjw/work/matting_set/data/PPM-100/train/image/
+bg_path: ''
+gt_path: /data/wjw/work/matting_set/data/PPM-100/train/matte/
+val_img_path: /data/wjw/work/matting_set/data/PPM-100/val/image/
+val_gt_path: /data/wjw/work/matting_set/data/PPM-100/val/matte/
+trimap_path: ''
+show_img_path: /data/wjw/work/matting_set/data/PPM-100/val/image/
+show_gt_path: /data/wjw/work/matting_set/data/PPM-100/val/matte/
