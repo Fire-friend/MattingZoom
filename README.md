@@ -10,7 +10,7 @@ A PyTorch-based library for trimap-free matting.
 - [x] GFM
 
 ## Usage
-> python public_worker.py --model GFM
+`python public_worker.py --model GFM`
 
 ## The requirement for extending custom method.
 - model file: 
