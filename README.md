@@ -10,7 +10,7 @@ A PyTorch-based library for trimap-free matting.
 - [x] GFM
 
 ## The requirement for extending custom method.
-- model: 
+- model file: 
   - Put the model file in the *models* directory.
   - The name of model file should follow **[custom]_net**.
   - The class name should follow **[custom]_Net**.
