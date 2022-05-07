@@ -9,6 +9,9 @@ A PyTorch-based library for trimap-free matting.
 - [x] MODNet
 - [x] GFM
 
+## Usage
+> python public_worker.py --model GFM
+
 ## The requirement for extending custom method.
 - model file: 
   - Put the model file in the *models* directory.
