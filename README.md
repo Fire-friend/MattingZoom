@@ -1,5 +1,5 @@
 # MattingZoom
-A PyTorch-based library for trimap-free matting.
+A PyTorch-based library for trimap-free matting. A complete project will be released soon!
 
 
  
