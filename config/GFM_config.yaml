@@ -1,0 +1,41 @@
+loader_mode: GFM
+gpu: '0'
+backbone: r34
+data_set: AM2K
+save_file: 19
+batch_size: 32
+num_worker: 16
+pretrain_path: ''
+lr: 0.00001
+weight: 0.0005
+port: 23548
+epoch: 1000
+aug_mixup: false
+aug_shadow: true
+aug_crop: false
+val_per_epoch: 1
+show_per_epoch: 10
+save_per_epoch: 5
+
+# GFM loader-------------------
+rssn_denoise: false
+bgPath_denoise: ''
+fgPath_denoise: ''
+crop_size: 320
+val_size: 1600
+
+rosta: TT
+
+# FBDM loader------------------
+img_size: 512 # only use in FBDM loader mode
+
+#PPM
+im_path: /data/wjw/work/matting_set/AM-2K/AM-2K/train/original/
+fg_path: ''
+bg_path: ''
+gt_path: /data/wjw/work/matting_set/AM-2K/AM-2K/train/mask/
+val_img_path: /data/wjw/work/matting_set/AM-2K/AM-2K/validation/original/
+val_gt_path: /data/wjw/work/matting_set/AM-2K/AM-2K/validation/mask/
+trimap_path: ''
+show_img_path: /data/wjw/work/matting_set/AM-2K/AM-2K/validation/original/
+show_gt_path: /data/wjw/work/matting_set/AM-2K/AM-2K/validation/mask/

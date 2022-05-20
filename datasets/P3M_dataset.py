@@ -147,7 +147,7 @@ def gen_trimap_with_dilate(alpha, kernel_size):
 #########################
 ## Data Loader
 #########################
-class GFM_Dataset(Base_Dataset):
+class P3M_Dataset(Base_Dataset):
     def __init__(self, args, mode='train'):
         super().__init__(args, mode)
 
@@ -156,7 +156,7 @@ class GFM_Dataset(Base_Dataset):
         self.mode = mode
 
         if mode == 'train':
-            self.transform = MattingTransform(out_size=self.out_size, crop_size=[640, 960, 1280])
+            self.transform = MattingTransform(out_size=self.out_size, crop_size=[512, 768, 1024])
             self.imPath = args.im_path
             self.gtPath = args.gt_path
         elif mode == 'val':
@@ -241,7 +241,8 @@ class GFM_Dataset(Base_Dataset):
         # ori, fg, bg = generate_composite_coco(fg, bg, label_im)
 
         # Generate trimap/dilation/erosion online
-        kernel_size_tt = 25
+        # kernel_size_tt = 25
+        kernel_size_tt = random.randint(15, 30)
         trimap = gen_trimap_with_dilate(label_im, kernel_size_tt)
 
         # Data transformation to generate samples

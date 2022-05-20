@@ -47,7 +47,7 @@ class FBDM_Dataset(Base_Dataset):
             bgPath = None
 
         elif mode == 'train':
-            forPath = args.fg_path
+            forPath = args.im_path
             labelPath = args.gt_path
             bgPath = args.bg_path
             out_size = args.img_size
@@ -94,7 +94,7 @@ class FBDM_Dataset(Base_Dataset):
         label_name = self.labelPath_files[fg_index]
         assert label_name.split('.')[0] == fg_name.split('.')[0], 'name is not match'
         fg_im = cv2.imread(self.forthPath + fg_name)
-        label_im = cv2.imread(self.labelPath + label_name, cv2.IMREAD_UNCHANGED)
+        label_im = cv2.imread(self.labelPath + label_name)
         if len(label_im.shape) == 2:
             label_im = label_im
         elif label_im.shape[2] == 4:
@@ -148,7 +148,7 @@ class FBDM_Dataset(Base_Dataset):
         label_name = self.labelPath_files[fg_index]
         assert label_name.split('.')[0] == fg_name.split('.')[0], 'name is not match'
         fg_im = cv2.imread(self.forthPath + fg_name)
-        label_im = cv2.imread(self.labelPath + label_name, cv2.IMREAD_UNCHANGED)
+        label_im = cv2.imread(self.labelPath + label_name)
         if len(label_im.shape) == 2:
             label_im = label_im
         elif label_im.shape[2] == 4:

@@ -9,7 +9,7 @@ class Base_options():
     def initialize(self):
         self.parser = argparse.ArgumentParser(description='Arguments for the training purpose.')
         # public--------------------
-        self.parser.add_argument('--model', type=str, default='MODNet',
+        self.parser.add_argument('--model', type=str, default='GFM',
                             choices=["FBDM", "MODNet", "GFM", "U2Net", "u2netp", "SHM", "FBDM_img"],
                             help="training model")
     def get_args(self):

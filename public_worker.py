@@ -3,7 +3,9 @@ import warnings
 warnings.filterwarnings("ignore")
 import logging
 from torch import optim
+# from option import get_args
 from options.Base_option import Base_options
+# from models.FBDM import FBDM
 from datasets.data_util import *
 import os
 import torch.distributed as dist
@@ -17,7 +19,7 @@ from tensorboardX import SummaryWriter
 # load yaml file by mode
 base_option = Base_options()
 args = base_option.get_args()
-yamls_dict = get_yaml_data('./options/' + args.model + '_config.yaml')
+yamls_dict = get_yaml_data('./config/' + args.model + '_config.yaml')
 set_yaml_to_args(args, yamls_dict)
 
 os.environ['CUDA_VISIBLE_DEVICES'] = args.gpu
@@ -99,7 +101,7 @@ def main_worker(rank, n_pros):
                 print(name[7:])
         net.load_state_dict(new_params)
 
-    optimizer = optim.Adam(net.parameters(), lr=args.lr, betas=(0.9, 0.999), eps=1e-08, weight_decay=0)
+    optimizer = optim.Adam(net.parameters(), lr=args.lr)
 
     scaler = GradScaler()
     max_val_loss = 100000
