@@ -2,12 +2,15 @@
 A PyTorch-based library for trimap-free matting. A complete project will be released soon!
 
 
- 
+
 ## Supported Models:
 - [x] SHM
 - [x] U2Net
 - [x] MODNet
 - [x] GFM
+- [ ] P3M-Net
+- [ ] LF
+- [ ] HATT
 
 ## Usage
 `python public_worker.py --model GFM`
