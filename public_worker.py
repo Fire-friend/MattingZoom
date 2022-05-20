@@ -39,7 +39,7 @@ def main_worker(rank, n_pros):
     writer = SummaryWriter(args.log_path)
 
     torch.cuda.set_device(rank)
-    dist.init_process_group(backend='nccl', init_method='tcp://127.0.0.1:{}'.format(args.port), world_size=n_pros,
+    dist.init_process_group(backend=args.backend, init_method='tcp://127.0.0.1:{}'.format(args.port), world_size=n_pros,
                             rank=rank)
 
     # get the dataset dynamically

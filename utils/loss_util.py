@@ -3,7 +3,7 @@ import torch.nn.functional as F
 import kornia
 from torch import nn
 
-from evaluate import get_alpha_loss, get_crossentropy_loss
+from utils.evaluate import get_alpha_loss, get_crossentropy_loss
 
 
 def crop_patch(x, idx, size, padding):

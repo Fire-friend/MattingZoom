@@ -1,10 +1,9 @@
-loader_mode: GFM
+# public
+backend: gloo  # gloo for windows, nccl for linux
 gpu: '0'
-backbone: r34
-data_set: AM2K
 save_file: 19
-batch_size: 32
-num_worker: 16
+batch_size: 8
+num_worker: 4
 pretrain_path: ''
 lr: 0.00001
 weight: 0.0005
@@ -17,25 +16,32 @@ val_per_epoch: 1
 show_per_epoch: 10
 save_per_epoch: 5
 
-# GFM loader-------------------
+# dataset
+loader_mode: P3M  # GFM, P3M, FBDM
+data_set: AM500
+
+#GFM
+backbone: r34
+rosta: TT
+
+# GFM loader && P3M loader
 rssn_denoise: false
 bgPath_denoise: ''
 fgPath_denoise: ''
-crop_size: 320
-val_size: 1600
+crop_size: 512 # GFM:320; P3M:512
 
-rosta: TT
+val_size: 1600
 
 # FBDM loader------------------
 img_size: 512 # only use in FBDM loader mode
 
-#PPM
-im_path: /data/wjw/work/matting_set/AM-2K/AM-2K/train/original/
+#AIM 500
+im_path: F:/matting/AIM-500/original/
 fg_path: ''
 bg_path: ''
-gt_path: /data/wjw/work/matting_set/AM-2K/AM-2K/train/mask/
-val_img_path: /data/wjw/work/matting_set/AM-2K/AM-2K/validation/original/
-val_gt_path: /data/wjw/work/matting_set/AM-2K/AM-2K/validation/mask/
+gt_path: F:/matting/AIM-500/mask/
+val_img_path: F:/matting/AIM-500/original/
+val_gt_path: F:/matting/AIM-500/mask/
 trimap_path: ''
-show_img_path: /data/wjw/work/matting_set/AM-2K/AM-2K/validation/original/
-show_gt_path: /data/wjw/work/matting_set/AM-2K/AM-2K/validation/mask/
+show_img_path: F:/matting/AIM-500/original/
+show_gt_path: F:/matting/AIM-500/mask/
