@@ -1,7 +1,7 @@
 # public
-backend: gloo  # gloo for windows, nccl for linux
+backend: nccl  # gloo for windows, nccl for linux
 gpu: '0'
-save_file: 19
+save_file: 0
 batch_size: 8
 num_worker: 4
 pretrain_path: ''
@@ -17,8 +17,8 @@ show_per_epoch: 10
 save_per_epoch: 5
 
 # dataset
-loader_mode: P3M  # GFM, P3M, FBDM
-data_set: AM500
+loader_mode: GFM  # GFM, P3M, FBDM
+data_set: P3M-10k
 
 #GFM
 backbone: r34
@@ -36,12 +36,23 @@ val_size: 1600
 img_size: 512 # only use in FBDM loader mode
 
 #AIM 500
-im_path: F:/matting/AIM-500/original/
+im_path: .././data/P3M-10k/train/blurred_image/
 fg_path: ''
 bg_path: ''
-gt_path: F:/matting/AIM-500/mask/
-val_img_path: F:/matting/AIM-500/original/
-val_gt_path: F:/matting/AIM-500/mask/
+gt_path: .././data/P3M-10k/train/mask/
+val_img_path: .././data/P3M-10k/validation/P3M-500-P/blurred_image/
+val_gt_path: .././data/P3M-10k/validation/P3M-500-P/mask/
 trimap_path: ''
-show_img_path: F:/matting/AIM-500/original/
-show_gt_path: F:/matting/AIM-500/mask/
+show_img_path: .././data/P3M-10k/train/blurred_image/
+show_gt_path: .././data/P3M-10k/train/mask/
+
+
+#fg_path: .././data/PPM-100/train/image/
+#bg_path: ''
+#gt_path: .././data/PPM-100/train/matte/
+#val_img_path: .././data/PPM-100/val/image/
+#val_gt_path: .././data/PPM-100/val/matte/
+#trimap_path: ''
+#show_img_path: .././data/PPM-100/val/image/
+#show_gt_path: .././data/PPM-100/val/matte/
+
