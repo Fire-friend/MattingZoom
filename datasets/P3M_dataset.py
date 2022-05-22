@@ -32,7 +32,7 @@ from utils.util import generateRandomPrior, scale_img, padding_to_square, get_tr
 ## Data transformer
 #########################
 class MattingTransform(object):
-    def __init__(self, out_size, crop_size=[640, 960, 1280]):
+    def __init__(self, out_size, crop_size=[512, 768, 1024]):
         super(MattingTransform, self).__init__()
         self.out_size = out_size
         self.crop_size = crop_size
