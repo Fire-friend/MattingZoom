@@ -1,0 +1,54 @@
+# public
+backend: nccl  # gloo for windows, nccl for linux
+gpu: '1'
+save_file: 19
+batch_size: 8
+num_worker: 4
+pretrain_path: ''
+lr: 0.00001
+weight: 0.0005
+port: 10016
+epoch: 150
+aug_mixup: false
+aug_shadow: true
+aug_crop: false
+val_per_epoch: 1
+show_per_epoch: 10
+save_per_epoch: 5
+
+# dataset
+loader_mode: P3M  # GFM, P3M, FBDM
+bgPath_denoise: ''
+fgPath_denoise: ''
+data_set: P3M-10k
+
+
+# GFM loader && P3M loader
+rssn_denoise: false
+crop_size: 512 # GFM:320; P3M:512
+
+val_size: 1600
+
+# FBDM loader------------------
+img_size: 512 # only use in FBDM loader mode
+
+##PPM
+#fg_path: .././data/PPM-100/train/image/
+#bg_path: ''
+#gt_path: .././data/PPM-100/train/matte/
+#val_img_path: .././data/PPM-100/val/image/
+#val_gt_path: .././data/PPM-100/val/matte/
+#trimap_path: ''
+#show_img_path: .././data/PPM-100/val/image/
+#show_gt_path: .././data/PPM-100/val/matte/
+
+# P3M-10k
+im_path: .././data/P3M-10k/train/blurred_image/
+fg_path: ''
+bg_path: ''
+gt_path: .././data/P3M-10k/train/mask/
+val_img_path: .././data/P3M-10k/validation/P3M-500-P/blurred_image/
+val_gt_path: .././data/P3M-10k/validation/P3M-500-P/mask/
+trimap_path: ''
+show_img_path: .././data/P3M-10k/train/blurred_image/
+show_gt_path: .././data/P3M-10k/train/mask/
