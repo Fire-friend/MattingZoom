@@ -12,7 +12,15 @@ A PyTorch-based library for trimap-free matting. A complete project will be rele
 - [ ] LF
 - [ ] HATT
 
+## Supported Loaders:
+
+- [x] U2Net
+- [x] GFM
+- [x] P3M-Net
+- [x] FBDM
+
 ## Usage
+
 `python public_worker.py --model GFM`
 
 ## The requirement for extending custom method.
