@@ -261,6 +261,14 @@ class P3M_Dataset(Base_Dataset):
         prior = generateRandomPrior(argv[2], size=31)
         prior_trimap = prior.copy()
         prior_trimap[prior_trimap == -1] = 1
+        
+        normalize = T.Normalize(mean=[0.485, 0.456, 0.406],
+                                         std=[0.229, 0.224, 0.225])
+
+        ori = normalize(ori)
+        fg = normalize(fg)
+        bg = normalize(bg)
+
 
         return ori, mask, trimap, fg, bg, torch.from_numpy(prior).unsqueeze(0), torch.from_numpy(
             prior_trimap).unsqueeze(0), item
