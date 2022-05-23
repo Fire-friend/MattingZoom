@@ -1,13 +1,13 @@
 # public
 backend: nccl  # gloo for windows, nccl for linux
-gpu: '0'
-save_file: 0
+gpu: '2'
+save_file: 3
 batch_size: 8
 num_worker: 4
 pretrain_path: ''
 lr: 0.00001
 weight: 0.0005
-port: 23548
+port: 23523
 epoch: 1000
 aug_mixup: false
 aug_shadow: true
@@ -17,7 +17,7 @@ show_per_epoch: 10
 save_per_epoch: 5
 
 # dataset
-loader_mode: GFM  # GFM, P3M, FBDM
+loader_mode: P3M  # GFM, P3M, FBDM
 data_set: P3M-10k
 
 #GFM
@@ -55,4 +55,3 @@ show_gt_path: .././data/P3M-10k/train/mask/
 #trimap_path: ''
 #show_img_path: .././data/PPM-100/val/image/
 #show_gt_path: .././data/PPM-100/val/matte/
-
