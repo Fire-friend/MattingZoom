@@ -262,8 +262,8 @@ class P3M_Dataset(Base_Dataset):
         prior_trimap = prior.copy()
         prior_trimap[prior_trimap == -1] = 1
         
-        normalize = transforms.Normalize(mean=[0.406, 0.456, 0.485],
-                                         std=[0.225, 0.224, 0.229])
+        normalize = T.Normalize(mean=[0.485, 0.456, 0.406],
+                                         std=[0.229, 0.224, 0.225])
 
         ori = normalize(ori)
         fg = normalize(fg)
@@ -291,6 +291,11 @@ class P3M_Dataset(Base_Dataset):
         # fg_im = padding_to_square(fg_im)
         # label_im = padding_to_square(label_im)
         merge_img, label_alpha = fg_im, label_im
+        normalize = T.Normalize(mean=[0.485, 0.456, 0.406],
+                                std=[0.229, 0.224, 0.225])
+
+        merge_img = normalize(merge_img)
+        
         merge_img = self.transform(merge_img)
         merge_gt = self.transform(np.array(label_alpha, dtype='uint8'))
         trimap = torch.from_numpy(get_trimap(merge_gt[0].cpu().numpy()))
