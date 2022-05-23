@@ -1,6 +1,6 @@
 # public
 backend: nccl  # gloo for windows, nccl for linux
-gpu: '2'
+gpu: '1'
 save_file: 3
 batch_size: 8
 num_worker: 4
