@@ -161,6 +161,7 @@ class P3M_Dataset(Base_Dataset):
             self.gtPath = args.gt_path
         elif mode == 'val':
             self.transform = T.Compose([
+
                 T.ToTensor(),
             ])
             self.imPath = args.val_img_path
@@ -293,9 +294,10 @@ class P3M_Dataset(Base_Dataset):
         merge_img, label_alpha = fg_im, label_im
         normalize = T.Normalize(mean=[0.406, 0.456, 0.485],
                                 std=[0.225, 0.224, 0.229])
-        merge_img = normalize(merge_img)
+
         
         merge_img = self.transform(merge_img)
+        merge_img = normalize(merge_img)
         merge_gt = self.transform(np.array(label_alpha, dtype='uint8'))
         trimap = torch.from_numpy(get_trimap(merge_gt[0].cpu().numpy()))
         return merge_img, merge_gt, trimap, item
